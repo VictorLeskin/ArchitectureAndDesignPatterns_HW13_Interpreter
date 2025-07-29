@@ -4,6 +4,13 @@
 
 #include "ArchitectureAndDesignPatterns_HW13_Interpreter.hpp"
 
+
+extern const char str_SpaceShip[] = "SpaceShip";
+extern const char str_Game[] = "Game";
+extern const char str_moveTo[] = "moveTo";
+extern const char str_refuel[] = "refuel";
+
+
 // gTest grouping class
 class test_ArchitectureAndDesignPatterns_HW13_Interpreter : public ::testing::Test
 {

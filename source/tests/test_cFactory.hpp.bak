@@ -27,28 +27,10 @@ public:
 		return nullptr;
 	}
 
-	static iCommand* createInterpretCommand(sInterpretCommandData sd)
+	static iCommand* createInterpretCommand(const sInterpretCommandData sd)
 	{
-		cGame* game = sd.game;
-		const cMessage& msg = *sd.msg;
-
-		// get game 
-		cMsgHeader h;
-		std::istringstream strm(msg.Header());
-		nlohmann::json j = nlohmann::json::parse(strm);
-		from_json(j, h);
-
-		cOperationData* p = createSerializeObj(h.objId.id, h.operationId.id);
-		p->from_json(msg.Parameters().c_str());
-
-		return new cInterpretCommand(game, h.objId.id, h.operationId.id, std::shared_ptr<cOperationData>(p));
+		return new cInterpretCommand(sd);
 	}
-
-	static iCommand* createUserCommand(sUserCommandData sd)
-	{
-		return new cUserCommand(sd);
-	}
-	
 };
 
 #endif //#ifndef TEST_CFACTORY_HPP

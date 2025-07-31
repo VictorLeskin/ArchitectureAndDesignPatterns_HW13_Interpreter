@@ -91,16 +91,16 @@ protected:
 };
 
 
-struct sUserCommandData
+struct sInterpretCommandData99
 {
 	cEndPoint *ep;
 	cMessage msg;
 };
 
-class cUserCommand : public iCommand
+class cInterpretCommand99 : public iCommand
 {
 public:
-	cUserCommand(sUserCommandData cmdData) : cdata(cmdData)
+	cInterpretCommand(sInterpretCommandData cmdData) : cdata(cmdData)
 	{
 	}
 
@@ -108,7 +108,7 @@ public:
 	virtual const char* Type() { return typeid(*this).name(); }
 
 public:	
-	sUserCommandData cdata;
+	sInterpretCommandData cdata;
 };
 
 

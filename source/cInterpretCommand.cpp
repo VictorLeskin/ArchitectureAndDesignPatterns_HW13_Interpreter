@@ -4,6 +4,7 @@
 #include "cMessage.hpp"
 #include "cGame.hpp"
 #include "cSpaceShip.hpp"
+#include "cEndPoint.hpp"
 
 void cInterpretCommand::Execute()
 {
@@ -22,4 +23,9 @@ void to_json(nlohmann::json& j, const cTanker& v)
 void from_json(const nlohmann::json& j, cTanker& v)
 {
 	j.at("fuel").get_to(v.fuel);
+}
+
+void cUserCommand::Execute()
+{
+	cdata.ep->process(cdata.msg);
 }
